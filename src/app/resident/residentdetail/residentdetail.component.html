@@ -1,0 +1,176 @@
+<div class="container border solid">
+    <div class="card">
+        <div class="card-body  border border-primary">
+            <h3 class="card-header bold">Resident Detail</h3>
+            <form [formGroup]="residentForm">
+                <!--
+                <div class="d-inline-flex flex-row align-items-start p-2 bd-highlight flex-wrap">
+-->
+
+                <div class="row">
+                    <div class="col-md-4 col-sm-4 col-lg-4 p-2 bd-highlight">
+                        <label>Resident Name</label>
+                        <input type="text" class="form-control" formControlName="residentName"
+                            placeholder="Resident Name" />
+                        <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                            <div *ngIf="f.residentName.errors.required">Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-lg-4 p-2 bd-highlight">
+                        <label>Father Name</label>
+                        <input type="text" class="form-control" formControlName="fatherName"
+                            placeholder="Resident Name" />
+                        <div *ngIf="submitted && f.fatherName.errors" class="invalid-feedback">
+                            <div *ngIf="f.fatherName.errors.required">Father Name is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-lg-4 p-2 bd-highlight">
+                        <label>Mother Name</label>
+                        <input type="text" class="form-control" formControlName="motherName"
+                            placeholder="Mother  Name" />
+                        <div *ngIf="submitted && f.motherName.errors" class="invalid-feedback">
+                            <div *ngIf="f.motherName.errors.required">Mother Name is required</div>
+                        </div>
+                    </div>
+
+                
+
+               
+                    <div class="col-md-2 col-sm-4 col-lg-2 p-2 bd-highlight">
+                        <label>Date of Birth</label>
+                        <input type="date" class="form-control" formControlName="dob"
+                            placeholder="Resident Name" />
+                        <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                            <div *ngIf="f.dob.errors.required">Date of birth is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3 p-2 bd-highlight">
+                        <label>Your Unique ID</label>
+                        <input type="text" class="form-control" formControlName="satsangid"
+                            placeholder="Enter Satsang Id" />
+                        <div *ngIf="submitted && f.satsangid.errors" class="invalid-feedback">
+                            <div *ngIf="f.satsangid.errors.required">Resident Satsang ID is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-lg-2 p-2 bd-highlight">
+                        <label>Gender</label>
+                        <select class="form-select form-control" formControlName="licensee" >
+                            <option value ="1" selected>Male</option>
+                            <option value="0">Female</option>
+                                                      
+                          </select>
+                    </div>
+                    <div class="col-md-2 col-sm-2 col-lg-2 p-2 bd-highlight">
+                        <label>Marital Status</label>
+                        <select class="form-select form-control" formControlName="marital" >
+                            <option value ="1" selected>Married</option>
+                            <option value="0">Unmarried</option>
+                                                      
+                          </select>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3 p-2 bd-highlight">
+                        <label>Spouse Name</label>
+                        <input type="text" class="form-control" formControlName="spouse"
+                            placeholder="Enter Spouse Name" />
+                        <div *ngIf="submitted && f.satsangid.errors" class="invalid-feedback">
+                            <div *ngIf="f.satsangid.errors.required">Spouse Name is required</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 col-sm-1 col-lg-1 p-2 bd-highlight">
+                        <label>Licensee</label>
+                        <select class="form-select form-control" formControlName="licensee" >
+                            <option value ="0" selected>No</option>
+                            <option value="1">Yes</option>
+                                                      
+                          </select>
+                    </div>
+                    <div class="col-md-1 col-sm-1 col-lg-2 p-2 bd-highlight">
+                        <label>Relationship with licensee</label>
+                        <select class="form-select form-control" formControlName="relation" >
+                            <option value ="0" selected>Self</option>
+                            <option value ="1" selected>Daughter</option>
+                            <option value="2">Son</option>
+                            <option value="3">Wife</option>
+                            <option value="4">Husband</option>
+                            <option value="5">Brother</option>
+                            <option value="6">Sister</option>
+                            <option value="7">Grand Father</option>
+                            <option value="8">Grand Mother</option>
+                            <option value="9">Grand Father in Law</option>
+                            <option value="10">Grand Mother in Law</option>
+                                                      
+                          </select>
+                    </div>
+
+                    <div class="col-md-1 col-sm-1 col-lg-2 p-2 bd-highlight">
+                        <label>Select Role</label>
+                        <app-custom-combobox 
+                        #combo [Options]='roledata' [labeltext]='rolelabel'
+                        [combowidth]='rolewidth'>
+
+                    </app-custom-combobox>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3 p-2 bd-highlight">
+                        <label>Qualification</label>
+                        <input type="text" class="form-control" formControlName="qualification"
+                            placeholder="Enter Qualification" />
+                        <div *ngIf="submitted && f.qualification.errors" class="invalid-feedback">
+                            <div *ngIf="f.qualification.errors.required">Qualification is required</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-3 col-lg-3 p-2 bd-highlight">
+                        <label>Designation</label>
+                        <input type="text" class="form-control" formControlName="designation"
+                            placeholder="Enter Designation" />
+                        <div *ngIf="submitted && f.designation.errors" class="invalid-feedback">
+                            <div *ngIf="f.designation.errors.required">Qualification is required</div>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-2 col-sm-2 col-lg-2 p-2 bd-highlight">
+                        <label>Selet Department</label>
+                        <app-custom-combobox 
+                        #combo [Options]='deptdata' [labeltext]='deptlabel'
+                        [combowidth]='deptwidth'>
+
+                    </app-custom-combobox>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3 p-2 bd-highlight">
+                        <label>Father Unique ID</label>
+                        <input type="text" class="form-control" formControlName="satsangid"
+                            placeholder="Enter Satsang Id" />
+                        <div *ngIf="submitted && f.satsangid.errors" class="invalid-feedback">
+                            <div *ngIf="f.satsangid.errors.required">Resident Satsang ID is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3 p-2 bd-highlight">
+                        <label>Mother Unique ID</label>
+                        <input type="text" class="form-control" formControlName="satsangid"
+                            placeholder="Enter Satsang Id" />
+                        <div *ngIf="submitted && f.satsangid.errors" class="invalid-feedback">
+                            <div *ngIf="f.satsangid.errors.required">Resident Satsang ID is required</div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-3 col-lg-3 p-2 bd-highlight">
+                        <label>Spouse Unique ID</label>
+                        <input type="text" class="form-control" formControlName="satsangid"
+                            placeholder="Enter Satsang Id" />
+                        <div *ngIf="submitted && f.satsangid.errors" class="invalid-feedback">
+                            <div *ngIf="f.satsangid.errors.required">Resident Satsang ID is required</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </form>
+            <div class="form-row">
+                <div class="container border">
+                    <button type="button" class="btn btn-success mr-2  btn-sm">Save</button>
+                    <button type="button" class="btn btn-success mr-2  btn-sm">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

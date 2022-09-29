@@ -1,0 +1,47 @@
+<div class="container border solid">
+    <div class="card">
+        <div class="card-body  border border-primary">
+            <h3 class="card-header">Resident Master</h3>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-3 p-2 bd-highlight">
+                    <app-custom-combobox #combo [Options]='housedata' [labeltext]='houselabel'
+                        [combowidth]='combowidth'>
+
+                    </app-custom-combobox>
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-2 p-2 bd-highlight">
+                    <input type="text" class="form-control" placeholder="House Number" width="20%">
+                </div>
+                <div class="col-md-4 col-sm-4 col-lg-2 p-2 bd-highlight">
+                    <button type="button" class="btn btn-primary" (click) = "onOkClick()">OK</button>
+                </div>
+            </div>
+            <div class="form-row">
+                <div  class="container border" >
+                 <label><b>Resident List:</b></label>&nbsp; &nbsp;<label  style="color:blue"><b></b></label><br>
+                 <button type="button" class="btn btn-success mr-2  btn-sm"   >Add Resident</button> 
+                 <button type="button" class="btn btn-success mr-2  btn-sm"   >View Resident</button>
+        
+                             
+                
+
+                   <ag-grid-angular  
+                    #agRefGrid style="width:100%; height: 200px;"
+                    class="ag-theme-alpine"
+                    [rowData]="residentData"
+                    [columnDefs]="columnDefs"
+                    (rowSelected)="onResidentSelected($event)"
+                    [defaultColDef]="defaultColDef"
+                    rowSelection="single"
+                    (gridReady) ="onGridReady($event)"
+                   
+                    
+                   >
+                   </ag-grid-angular>    
+                
+                </div>
+  </div>
+        </div>
+    </div>
+</div>
